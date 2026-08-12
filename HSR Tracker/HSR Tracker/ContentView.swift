@@ -10,49 +10,62 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var chars: [Char]
+    @State private var newName: String = ""
+    @State private var newRelic: String = ""
+    @State private var newPlanet: String = ""
+    @State private var showingAddSheet = false
 
     var body: some View {
-        NavigationViewWrapper {
+        // Color.black
+        NavigationViewWrapper{
+            
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                ForEach(chars) { char in
+                    VStack(alignment: .leading) {
+                        HStack() {
+                            Button(action: {char.complete.toggle()}) {
+                                Label("Completed", systemImage: char.complete ? "checkmark.square.fill" : "checkmark.square")
+                            }
+                        }
+                        Text(char.name)
+                        Text(char.relic)
+                        Text(char.planet)
+                        }
                     }
-                }
                 .onDelete(perform: deleteItems)
-            }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
                 }
-#endif
+            
+            .toolbar {
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: {showingAddSheet.toggle()}) {
+                        Label("Add a Character", systemImage: "plus")
+                        }
                     }
                 }
+            .sheet(isPresented: $showingAddSheet) {
+                TextField("Character Name", text: $newName)
+                TextField("Relic Set", text:$newRelic)
+                TextField("Planet Sets", text:$newPlanet)
+                Button(action: {addChar(); showingAddSheet.toggle(); newName = ""; newRelic = ""; newPlanet = ""}) {
+                    Text("Save")
+                }
+                }
             }
-        }
+        
     }
 
-    private func addItem() {
+    private func addChar() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+            let newChar = Char(name: newName, relic: newRelic, planet: newPlanet, complete: false)
+            modelContext.insert(newChar)
         }
     }
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(chars[index])
             }
         }
     }
@@ -68,13 +81,16 @@ fileprivate struct NavigationViewWrapper<Content: View>: View {
         } detail: {
             Text("Select an item")
         }
-#else
-        content()
+#elseif os(iOS)
+        NavigationStack {
+            content()
+        }
+        
 #endif
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        
 }
