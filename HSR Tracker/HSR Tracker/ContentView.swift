@@ -17,9 +17,7 @@ struct ContentView: View {
     @State private var showingAddSheet = false
 
     var body: some View {
-        // Color.black
         NavigationViewWrapper{
-            
             List {
                 ForEach(chars) { char in
                     VStack(alignment: .leading) {
@@ -36,6 +34,7 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
                 }
             
+            // For the top bar
             .toolbar {
                 ToolbarItem {
                     Button(action: {showingAddSheet.toggle()}) {
@@ -43,6 +42,7 @@ struct ContentView: View {
                         }
                     }
                 }
+            // For typing in a character
             .sheet(isPresented: $showingAddSheet) {
                 TextField("Character Name", text: $newName)
                 TextField("Relic Set", text:$newRelic)
@@ -51,6 +51,7 @@ struct ContentView: View {
                     Text("Save")
                 }
                 }
+            
             }
         
     }
