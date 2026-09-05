@@ -12,7 +12,7 @@ import SwiftData
 struct HSR_TrackerApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Char.self,
+            CharacterProgress.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
