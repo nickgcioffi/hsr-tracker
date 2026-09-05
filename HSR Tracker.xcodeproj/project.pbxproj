@@ -24,25 +24,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		92D94EC7301D892500C6C3A7 /* HSR Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSR Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92D94ED6301D892600C6C3A7 /* HSR TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HSR TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92D94EE0301D892600C6C3A7 /* HSR TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HSR TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		926AE145304C93E100F6CEE1 /* HSR Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "HSR Tracker.app"; path = "/Users/nickgcioffi/Documents/HSR Tracker/build/Debug/HSR Tracker.app"; sourceTree = "<absolute>"; };
+		926AE146304C93E100F6CEE1 /* HSR TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "HSR TrackerTests.xctest"; path = "/Users/nickgcioffi/Documents/HSR Tracker/build/Debug/HSR Tracker.app/Contents/PlugIns/HSR TrackerTests.xctest"; sourceTree = "<absolute>"; };
+		926AE147304C93E100F6CEE1 /* HSR TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "HSR TrackerUITests.xctest"; path = "/Users/nickgcioffi/Documents/HSR Tracker/build/Debug/HSR TrackerUITests-Runner.app/Contents/PlugIns/HSR TrackerUITests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		926AE16A304C965200F6CEE1 /* Exceptions for "HSR Tracker" folder in "HSR TrackerTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"HSR TrackerTests/HSR_TrackerTests.swift",
+			);
+			target = 92D94ED5301D892600C6C3A7 /* HSR TrackerTests */;
+		};
+		926AE16C304C965C00F6CEE1 /* Exceptions for "HSR Tracker" folder in "HSR TrackerUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"HSR TrackerUITests/HSR_TrackerUITests.swift",
+				"HSR TrackerUITests/HSR_TrackerUITestsLaunchTests.swift",
+			);
+			target = 92D94EDF301D892600C6C3A7 /* HSR TrackerUITests */;
+		};
+		926AE172304C96AA00F6CEE1 /* Exceptions for "HSR Tracker" folder in "HSR Tracker" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"HSR TrackerTests/HSR_TrackerTests.swift",
+				"HSR TrackerUITests/HSR_TrackerUITests.swift",
+				"HSR TrackerUITests/HSR_TrackerUITestsLaunchTests.swift",
+			);
+			target = 92D94EC6301D892500C6C3A7 /* HSR Tracker */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		92D94EC9301D892500C6C3A7 /* HSR Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				926AE172304C96AA00F6CEE1 /* Exceptions for "HSR Tracker" folder in "HSR Tracker" target */,
+				926AE16A304C965200F6CEE1 /* Exceptions for "HSR Tracker" folder in "HSR TrackerTests" target */,
+				926AE16C304C965C00F6CEE1 /* Exceptions for "HSR Tracker" folder in "HSR TrackerUITests" target */,
+			);
 			path = "HSR Tracker";
-			sourceTree = "<group>";
-		};
-		92D94ED9301D892600C6C3A7 /* HSR TrackerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HSR TrackerTests";
-			sourceTree = "<group>";
-		};
-		92D94EE3301D892600C6C3A7 /* HSR TrackerUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HSR TrackerUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,20 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				92D94EC9301D892500C6C3A7 /* HSR Tracker */,
-				92D94ED9301D892600C6C3A7 /* HSR TrackerTests */,
-				92D94EE3301D892600C6C3A7 /* HSR TrackerUITests */,
-				92D94EC8301D892500C6C3A7 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		92D94EC8301D892500C6C3A7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				92D94EC7301D892500C6C3A7 /* HSR Tracker.app */,
-				92D94ED6301D892600C6C3A7 /* HSR TrackerTests.xctest */,
-				92D94EE0301D892600C6C3A7 /* HSR TrackerUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,7 +123,7 @@
 			packageProductDependencies = (
 			);
 			productName = "HSR Tracker";
-			productReference = 92D94EC7301D892500C6C3A7 /* HSR Tracker.app */;
+			productReference = 926AE145304C93E100F6CEE1 /* HSR Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		92D94ED5301D892600C6C3A7 /* HSR TrackerTests */ = {
@@ -130,14 +139,11 @@
 			dependencies = (
 				92D94ED8301D892600C6C3A7 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				92D94ED9301D892600C6C3A7 /* HSR TrackerTests */,
-			);
 			name = "HSR TrackerTests";
 			packageProductDependencies = (
 			);
 			productName = "HSR TrackerTests";
-			productReference = 92D94ED6301D892600C6C3A7 /* HSR TrackerTests.xctest */;
+			productReference = 926AE146304C93E100F6CEE1 /* HSR TrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		92D94EDF301D892600C6C3A7 /* HSR TrackerUITests */ = {
@@ -153,14 +159,11 @@
 			dependencies = (
 				92D94EE2301D892600C6C3A7 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				92D94EE3301D892600C6C3A7 /* HSR TrackerUITests */,
-			);
 			name = "HSR TrackerUITests";
 			packageProductDependencies = (
 			);
 			productName = "HSR TrackerUITests";
-			productReference = 92D94EE0301D892600C6C3A7 /* HSR TrackerUITests.xctest */;
+			productReference = 926AE147304C93E100F6CEE1 /* HSR TrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +199,7 @@
 			mainGroup = 92D94EBE301D892500C6C3A7;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 92D94EC8301D892500C6C3A7 /* Products */;
+			productRefGroup = 92D94EBE301D892500C6C3A7;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

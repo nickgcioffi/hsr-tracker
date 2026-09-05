@@ -27,5 +27,5 @@ Turn daily habits and workouts into Honkai: Star Rail gacha pulls.
 10. Add a pull system directly into the app, while granting yourself the ability to import your own data from your account to give you a better scope. (v1.0)
 
 ## Bugs to fix
-- It is possible to add a blank list entry into the app.
+- No known v0.2.x bugs.
  

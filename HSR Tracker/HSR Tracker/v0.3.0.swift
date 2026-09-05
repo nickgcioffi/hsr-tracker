@@ -8,12 +8,12 @@
 import Foundation
 
 // How the .jsons will be accessed
-class FileManager {
-    static let shared = FileManager()
+final class ResourceFileManager {
+    static let shared = ResourceFileManager()
     var homedir = "/HSR_Tracker/HSR_Tracker/"
-    
+
     private init() {}
-    
+
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]

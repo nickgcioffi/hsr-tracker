@@ -47,20 +47,46 @@ struct ContentView: View {
                 TextField("Character Name", text: $newName)
                 TextField("Relic Set", text:$newRelic)
                 TextField("Planet Sets", text:$newPlanet)
-                Button(action: {addChar(); showingAddSheet.toggle(); newName = ""; newRelic = ""; newPlanet = ""}) {
+                Button(action: {
+                    if addChar() {
+                        showingAddSheet.toggle()
+                        resetNewCharacterFields()
+                    }
+                }) {
                     Text("Save")
                 }
+                .disabled(!canSaveCharacter)
                 }
             
             }
         
     }
 
-    private func addChar() {
+    private var canSaveCharacter: Bool {
+        !newName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    private func addChar() -> Bool {
+        let name = newName.trimmingCharacters(in: .whitespacesAndNewlines)
+        let relic = newRelic.trimmingCharacters(in: .whitespacesAndNewlines)
+        let planet = newPlanet.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard !name.isEmpty else {
+            return false
+        }
+
         withAnimation {
-            let newChar = Char(name: newName, relic: newRelic, planet: newPlanet, complete: false)
+            let newChar = Char(name: name, relic: relic, planet: planet, complete: false)
             modelContext.insert(newChar)
         }
+
+        return true
+    }
+
+    private func resetNewCharacterFields() {
+        newName = ""
+        newRelic = ""
+        newPlanet = ""
     }
 
     private func deleteItems(offsets: IndexSet) {
