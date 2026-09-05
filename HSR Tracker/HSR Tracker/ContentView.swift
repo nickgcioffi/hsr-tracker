@@ -166,9 +166,10 @@ struct ContentView: View {
     }
 }
 
-private struct CharacterIconView: View {
+private struct ResourceImageView: View {
     let resourcePath: String?
     let size: CGFloat
+    let fallbackSystemImage: String
 
     var body: some View {
         Group {
@@ -177,7 +178,7 @@ private struct CharacterIconView: View {
                     .resizable()
                     .scaledToFit()
             } else {
-                Image(systemName: "person.crop.circle")
+                Image(systemName: fallbackSystemImage)
                     .resizable()
                     .scaledToFit()
                     .foregroundStyle(.secondary)
@@ -221,7 +222,7 @@ private struct CharacterProgressRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 12) {
-                CharacterIconView(resourcePath: character?.icon, size: 40)
+                ResourceImageView(resourcePath: character?.icon, size: 40, fallbackSystemImage: "person.crop.circle")
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(character?.name ?? "Unknown Character")
@@ -260,6 +261,57 @@ private struct CharacterProgressRow: View {
     }
 }
 
+private struct SelectionMenuLabel: View {
+    let title: String
+    let selection: String
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .foregroundStyle(.primary)
+
+            Spacer()
+
+            Text(selection)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+
+            Image(systemName: "chevron.up.chevron.down")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+        .contentShape(Rectangle())
+    }
+}
+
+private struct GoalPreviewItem: View {
+    let title: String
+    let subtitle: String
+    let resourcePath: String?
+    let fallbackSystemImage: String
+    let imageSize: CGFloat
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            ResourceImageView(
+                resourcePath: resourcePath,
+                size: imageSize,
+                fallbackSystemImage: fallbackSystemImage
+            )
+
+            Text(title)
+                .font(.caption)
+                .lineLimit(2)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(subtitle)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: 120, alignment: .topLeading)
+    }
+}
+
 private struct AddCharacterView: View {
     let availableCharacters: [GameCharacter]
     let relicSets: [RelicSet]
@@ -272,44 +324,101 @@ private struct AddCharacterView: View {
     let onCancel: () -> Void
     let onSave: () -> Void
 
+    private var previewCharacter: GameCharacter? {
+        selectedCharacter ?? availableCharacters.first
+    }
+
+    private var previewRelicSet: RelicSet? {
+        relicSets.first { $0.id == selectedRelicSetID } ?? relicSets.first
+    }
+
+    private var previewPlanarSet: RelicSet? {
+        planarSets.first { $0.id == selectedPlanarSetID } ?? planarSets.first
+    }
+
     var body: some View {
         NavigationStack {
             Form {
                 Section("Character") {
-                    Picker("Character", selection: $selectedCharacterID) {
+                    Menu {
                         ForEach(availableCharacters) { character in
-                            Text(character.name).tag(character.id)
-                        }
-                    }
-
-                    if let selectedCharacter {
-                        HStack(spacing: 12) {
-                            CharacterIconView(resourcePath: selectedCharacter.icon, size: 56)
-
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(selectedCharacter.name)
-                                    .font(.headline)
-                                Text("\(selectedCharacter.element) | \(selectedCharacter.rarity)-star")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                            Button(action: { selectedCharacterID = character.id }) {
+                                HStack(spacing: 8) {
+                                    ResourceImageView(resourcePath: character.icon, size: 24, fallbackSystemImage: "person.crop.circle")
+                                    Text(character.name)
+                                }
                             }
                         }
-                        .padding(.vertical, 4)
+                    } label: {
+                        SelectionMenuLabel(
+                            title: "Character",
+                            selection: previewCharacter?.name ?? "Select a character"
+                        )
                     }
                 }
 
                 Section("Goals") {
-                    Picker("Relic set", selection: $selectedRelicSetID) {
+                    Menu {
                         ForEach(relicSets) { relicSet in
-                            Text(relicSet.name).tag(relicSet.id)
+                            Button(action: { selectedRelicSetID = relicSet.id }) {
+                                HStack(spacing: 8) {
+                                    ResourceImageView(resourcePath: relicSet.icon, size: 24, fallbackSystemImage: "seal")
+                                    Text(relicSet.name)
+                                }
+                            }
                         }
+                    } label: {
+                        SelectionMenuLabel(
+                            title: "Relic set",
+                            selection: previewRelicSet?.name ?? "Select a relic set"
+                        )
                     }
 
-                    Picker("Planar set", selection: $selectedPlanarSetID) {
+                    Menu {
                         ForEach(planarSets) { planarSet in
-                            Text(planarSet.name).tag(planarSet.id)
+                            Button(action: { selectedPlanarSetID = planarSet.id }) {
+                                HStack(spacing: 8) {
+                                    ResourceImageView(resourcePath: planarSet.icon, size: 24, fallbackSystemImage: "circle.hexagongrid")
+                                    Text(planarSet.name)
+                                }
+                            }
                         }
+                    } label: {
+                        SelectionMenuLabel(
+                            title: "Planar set",
+                            selection: previewPlanarSet?.name ?? "Select a planar set"
+                        )
                     }
+                }
+
+                Section("Preview") {
+                    HStack(alignment: .top, spacing: 16) {
+                        GoalPreviewItem(
+                            title: previewCharacter?.name ?? "Character",
+                            subtitle: previewCharacter.map { "\($0.element) | \($0.rarity)-star" } ?? "Select a character",
+                            resourcePath: previewCharacter?.portrait ?? previewCharacter?.icon,
+                            fallbackSystemImage: "person.crop.circle",
+                            imageSize: 88
+                        )
+
+                        GoalPreviewItem(
+                            title: previewRelicSet?.name ?? "Relic set",
+                            subtitle: "Relic",
+                            resourcePath: previewRelicSet?.icon,
+                            fallbackSystemImage: "seal",
+                            imageSize: 56
+                        )
+
+                        GoalPreviewItem(
+                            title: previewPlanarSet?.name ?? "Planar set",
+                            subtitle: "Planar",
+                            resourcePath: previewPlanarSet?.icon,
+                            fallbackSystemImage: "circle.hexagongrid",
+                            imageSize: 56
+                        )
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 4)
                 }
             }
             .navigationTitle("Add Character")

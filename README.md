@@ -27,5 +27,5 @@ Turn daily habits and workouts into Honkai: Star Rail gacha pulls.
 10. Add a pull system directly into the app, while granting yourself the ability to import your own data from your account to give you a better scope. (v1.0)
 
 ## Bugs to fix
-- No known v0.2.x bugs.
+- A QoL change: Have the Trailbrazer's elements be specific, and as well the male/female variants be combined into one unit.
  

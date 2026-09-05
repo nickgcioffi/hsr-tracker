@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0
+- Implemented a proper unit selecter tool, featured with relics and planet sets.
+- Image Previews are available as well per character.
+
 ## v0.2.1
 - Prevented blank character entries from being saved.
 - Character, relic, and planet inputs are trimmed before saving.
