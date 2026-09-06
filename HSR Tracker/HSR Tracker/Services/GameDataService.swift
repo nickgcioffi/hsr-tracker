@@ -18,14 +18,15 @@ final class GameDataService {
 
     func loadGameData() throws -> GameData {
         let relics = try loadDictionaryResource("relics", as: Relic.self)
-        let sets = buildRelicSets(from: relics)
+        let sets = try loadDictionaryResource("relic_sets", as: RelicSet.self)
 
         return GameData(
             characters: try loadDictionaryResource("characters", as: GameCharacter.self),
             lightCones: try loadDictionaryResource("light_cones", as: LightCone.self),
             relics: relics,
             relicSets: sets.filter { $0.category == .relic },
-            planarSets: sets.filter { $0.category == .planar }
+            planarSets: sets.filter { $0.category == .planar },
+            buildRecommendations: try loadDictionaryMap("build_recommendations", as: CharacterBuildRecommendation.self)
         )
     }
 
@@ -39,48 +40,20 @@ final class GameDataService {
     }
 
     private func loadDictionaryResource<T: Decodable>(_ resourceName: String, as type: T.Type) throws -> [T] {
-        guard let url = Bundle.main.url(forResource: resourceName, withExtension: "json") else {
-            throw GameDataError.missingResource(resourceName)
-        }
-
-        let data = try Data(contentsOf: url)
-        let decoded = try JSONDecoder().decode([String: T].self, from: data)
+        let decoded = try loadDictionaryMap(resourceName, as: type)
 
         return decoded
             .sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
             .map(\.value)
     }
 
-    private func buildRelicSets(from relics: [Relic]) -> [RelicSet] {
-        let groupedRelics = Dictionary(grouping: relics, by: \.setID)
-
-        return groupedRelics.compactMap { setID, relics in
-            guard let representative = representativeRelic(from: relics) else {
-                return nil
-            }
-
-            return RelicSet(
-                id: setID,
-                name: representative.name,
-                category: setID.hasPrefix("3") ? .planar : .relic,
-                icon: representative.icon
-            )
-        }
-        .sorted { first, second in
-            first.id.localizedStandardCompare(second.id) == .orderedAscending
-        }
-    }
-
-    private func representativeRelic(from relics: [Relic]) -> Relic? {
-        let preferredTypes = ["HEAD", "NECK", "HAND", "OBJECT", "BODY", "FOOT"]
-
-        for type in preferredTypes {
-            if let relic = relics.first(where: { $0.type == type }) {
-                return relic
-            }
+    private func loadDictionaryMap<T: Decodable>(_ resourceName: String, as type: T.Type) throws -> [String: T] {
+        guard let url = Bundle.main.url(forResource: resourceName, withExtension: "json") else {
+            throw GameDataError.missingResource(resourceName)
         }
 
-        return relics.first
+        let data = try Data(contentsOf: url)
+        return try JSONDecoder().decode([String: T].self, from: data)
     }
 
     private func bundledResourceURL(for resourcePath: String) -> URL? {

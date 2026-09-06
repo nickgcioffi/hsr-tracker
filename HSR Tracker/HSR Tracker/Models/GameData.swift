@@ -72,8 +72,8 @@ struct Relic: Codable, Identifiable, Hashable {
     }
 }
 
-struct RelicSet: Identifiable, Hashable {
-    enum Category {
+struct RelicSet: Codable, Identifiable, Hashable {
+    enum Category: String, Codable {
         case relic
         case planar
     }
@@ -90,6 +90,14 @@ struct GameData {
     let relics: [Relic]
     let relicSets: [RelicSet]
     let planarSets: [RelicSet]
+    let buildRecommendations: [String: CharacterBuildRecommendation]
 
-    static let empty = GameData(characters: [], lightCones: [], relics: [], relicSets: [], planarSets: [])
+    static let empty = GameData(
+        characters: [],
+        lightCones: [],
+        relics: [],
+        relicSets: [],
+        planarSets: [],
+        buildRecommendations: [:]
+    )
 }

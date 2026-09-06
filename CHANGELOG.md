@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.4.1
+- Added Codable models for character build recommendations.
+- Loaded `build_recommendations.json` and `relic_sets.json` through `GameDataService`.
+- Added build recommendation previews to the add-character flow.
+- Added character detail screens with recommended relic sets, planar sets, main stats, Light Cones, substats, targets, and notes.
+- Updated tracked character rows to show compact character information with a Reminders-style circular completion control.
+
 ## v0.4.0
 - Added bottom tab navigation for Home, Characters, Stellar Jades, and Settings.
 - Moved the existing character tracker into the Characters tab.

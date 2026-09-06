@@ -5,6 +5,10 @@ struct AddCharacterView: View {
     let relicSets: [RelicSet]
     let planarSets: [RelicSet]
     let selectedCharacter: GameCharacter?
+    let recommendation: CharacterBuildRecommendation?
+    let lightConeByID: [String: LightCone]
+    let relicSetByID: [String: RelicSet]
+    let planarSetByID: [String: RelicSet]
     @Binding var selectedCharacterID: String
     @Binding var selectedRelicSetID: String
     @Binding var selectedPlanarSetID: String
@@ -43,6 +47,16 @@ struct AddCharacterView: View {
                             selection: previewCharacter?.name ?? "Select a character"
                         )
                     }
+                }
+
+                Section("Recommendation") {
+                    BuildRecommendationSummaryView(
+                        recommendation: recommendation,
+                        lightConeByID: lightConeByID,
+                        relicSetByID: relicSetByID,
+                        planarSetByID: planarSetByID,
+                        isCompact: true
+                    )
                 }
 
                 Section("Goals") {

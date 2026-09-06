@@ -16,6 +16,10 @@ struct CharacterListView: View {
         Dictionary(uniqueKeysWithValues: gameData.characters.map { ($0.id, $0) })
     }
 
+    private var lightConeByID: [String: LightCone] {
+        Dictionary(uniqueKeysWithValues: gameData.lightCones.map { ($0.id, $0) })
+    }
+
     private var relicSetByID: [String: RelicSet] {
         Dictionary(uniqueKeysWithValues: gameData.relicSets.map { ($0.id, $0) })
     }
@@ -26,6 +30,10 @@ struct CharacterListView: View {
 
     private var selectedCharacter: GameCharacter? {
         characterByID[selectedCharacterID]
+    }
+
+    private var selectedRecommendation: CharacterBuildRecommendation? {
+        gameData.buildRecommendations[selectedCharacterID]
     }
 
     private var trackedProgress: [CharacterProgress] {
@@ -61,12 +69,28 @@ struct CharacterListView: View {
                             .foregroundStyle(.secondary)
                     } else {
                         ForEach(trackedProgress) { progress in
-                            CharacterProgressRow(
-                                progress: progress,
-                                character: characterByID[progress.characterID],
-                                relicSet: relicSetByID[progress.relicGoal],
-                                planarSet: planarSetByID[progress.planarGoal]
-                            )
+                            HStack(spacing: 12) {
+                                Button(action: { progress.isComplete.toggle() }) {
+                                    Image(systemName: progress.isComplete ? "checkmark.circle.fill" : "circle")
+                                        .font(.title3)
+                                        .foregroundStyle(progress.isComplete ? .green : .secondary)
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityLabel(progress.isComplete ? "Mark incomplete" : "Mark complete")
+
+                                NavigationLink {
+                                    CharacterDetailView(
+                                        progress: progress,
+                                        character: characterByID[progress.characterID],
+                                        recommendation: gameData.buildRecommendations[progress.characterID],
+                                        lightConeByID: lightConeByID,
+                                        relicSetByID: relicSetByID,
+                                        planarSetByID: planarSetByID
+                                    )
+                                } label: {
+                                    CharacterProgressRow(character: characterByID[progress.characterID])
+                                }
+                            }
                         }
                         .onDelete(perform: deleteItems)
                     }
@@ -87,6 +111,10 @@ struct CharacterListView: View {
                     relicSets: gameData.relicSets,
                     planarSets: gameData.planarSets,
                     selectedCharacter: selectedCharacter,
+                    recommendation: selectedRecommendation,
+                    lightConeByID: lightConeByID,
+                    relicSetByID: relicSetByID,
+                    planarSetByID: planarSetByID,
                     selectedCharacterID: $selectedCharacterID,
                     selectedRelicSetID: $selectedRelicSetID,
                     selectedPlanarSetID: $selectedPlanarSetID,
