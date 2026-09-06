@@ -1,0 +1,13 @@
+{
+  "character_name_aliases": {
+    "Imbibitor Lunae": "Dan Heng • Imbibitor Lunae",
+    "Permansor Terrae": "Dan Heng • Permansor Terrae"
+  },
+  "build_variant_labels": {
+    "Notes | (Sub DPS)": "Sub DPS",
+    "Notes | (Super Break DPS)": "Super Break DPS",
+    "Support Build": "Support",
+    "Sub DPS Build": "Sub DPS",
+    "Battery Build": "Battery"
+  }
+}

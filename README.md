@@ -28,4 +28,14 @@ Turn daily habits and workouts into Honkai: Star Rail gacha pulls.
 
 ## Bugs to fix
 - A QoL change: Have the Trailbrazer's elements be specific, and as well the male/female variants be combined into one unit.
- 
+
+## Put a Pin in These
+
+Build recommendation import items to review later:
+
+- `Robin Summeretto` appears in the spreadsheet but is not in the current `characters.json`.
+- Light Cones needing review: `A Little Getaway`, `Rise and Sing`, and generic `Any High Base HP / DEF Light Cone`.
+- Generic relic shorthand such as `SPD% Set`, `BE% Set`, and mixed `ATK% Set / ...` entries are preserved with `set_id: null`.
+- Unknown stat text still flagged by the importer: `DMG`, `DMG%`, and the Castorice fragment `(Assuming 4-PC`.
+- Trailblazer spreadsheet rows currently expand to both matching app IDs for male/female forms.
+- Full import details live in `ImportAudit/build_recommendations_validation.md`.

@@ -1,0 +1,408 @@
+{
+  "101": {
+    "category": "relic",
+    "icon": "icon/relic/101_0.png",
+    "id": "101",
+    "name": "Passerby",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "102": {
+    "category": "relic",
+    "icon": "icon/relic/102_0.png",
+    "id": "102",
+    "name": "Musketeer of Wild Wheat",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "103": {
+    "category": "relic",
+    "icon": "icon/relic/103_0.png",
+    "id": "103",
+    "name": "Knight",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "104": {
+    "category": "relic",
+    "icon": "icon/relic/104_0.png",
+    "id": "104",
+    "name": "Hunter of Glacial Forest",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "105": {
+    "category": "relic",
+    "icon": "icon/relic/105_0.png",
+    "id": "105",
+    "name": "Champion",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "106": {
+    "category": "relic",
+    "icon": "icon/relic/106_0.png",
+    "id": "106",
+    "name": "Guard",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "107": {
+    "category": "relic",
+    "icon": "icon/relic/107_0.png",
+    "id": "107",
+    "name": "Firesmith of Lava-Forging",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "108": {
+    "category": "relic",
+    "icon": "icon/relic/108_0.png",
+    "id": "108",
+    "name": "Genius Of Brilliant Stars",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "109": {
+    "category": "relic",
+    "icon": "icon/relic/109_0.png",
+    "id": "109",
+    "name": "Band of Sizzling Thunder",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "110": {
+    "category": "relic",
+    "icon": "icon/relic/110_0.png",
+    "id": "110",
+    "name": "Eagle",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "111": {
+    "category": "relic",
+    "icon": "icon/relic/111_0.png",
+    "id": "111",
+    "name": "Thief of Shooting Meteor",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "112": {
+    "category": "relic",
+    "icon": "icon/relic/112_0.png",
+    "id": "112",
+    "name": "Wastelander",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "113": {
+    "category": "relic",
+    "icon": "icon/relic/113_0.png",
+    "id": "113",
+    "name": "Longevous",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "114": {
+    "category": "relic",
+    "icon": "icon/relic/114_0.png",
+    "id": "114",
+    "name": "Messenger Traversing Hackerspace",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "115": {
+    "category": "relic",
+    "icon": "icon/relic/115_0.png",
+    "id": "115",
+    "name": "Duke",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "116": {
+    "category": "relic",
+    "icon": "icon/relic/116_0.png",
+    "id": "116",
+    "name": "Prisoner in Deep Confinement",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "117": {
+    "category": "relic",
+    "icon": "icon/relic/117_0.png",
+    "id": "117",
+    "name": "Pioneer",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "118": {
+    "category": "relic",
+    "icon": "icon/relic/118_0.png",
+    "id": "118",
+    "name": "Watchmaker, Master of Dream Machinations",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "119": {
+    "category": "relic",
+    "icon": "icon/relic/119_0.png",
+    "id": "119",
+    "name": "Iron Cavalry Against the Scourge",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "120": {
+    "category": "relic",
+    "icon": "icon/relic/120_0.png",
+    "id": "120",
+    "name": "The Wind-Soaring Valorous",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "121": {
+    "category": "relic",
+    "icon": "icon/relic/121_0.png",
+    "id": "121",
+    "name": "Sacerdos Relived Ordeal",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "122": {
+    "category": "relic",
+    "icon": "icon/relic/122_0.png",
+    "id": "122",
+    "name": "Scholar Lost in Erudition",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "123": {
+    "category": "relic",
+    "icon": "icon/relic/123_0.png",
+    "id": "123",
+    "name": "Hero of Triumphant Song",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "124": {
+    "category": "relic",
+    "icon": "icon/relic/124_0.png",
+    "id": "124",
+    "name": "Poet of Mourning Collapse",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "125": {
+    "category": "relic",
+    "icon": "icon/relic/125_0.png",
+    "id": "125",
+    "name": "Warrior Goddess of Sun and Thunder",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "126": {
+    "category": "relic",
+    "icon": "icon/relic/126_0.png",
+    "id": "126",
+    "name": "Wavestrider",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "127": {
+    "category": "relic",
+    "icon": "icon/relic/127_0.png",
+    "id": "127",
+    "name": "The World Remaking Deliverer",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "128": {
+    "category": "relic",
+    "icon": "icon/relic/128_0.png",
+    "id": "128",
+    "name": "Recluse",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "129": {
+    "category": "relic",
+    "icon": "icon/relic/129_0.png",
+    "id": "129",
+    "name": "Ever-Glorious Magical Girl",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "130": {
+    "category": "relic",
+    "icon": "icon/relic/130_0.png",
+    "id": "130",
+    "name": "Diviner of Distant Reach",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "131": {
+    "category": "relic",
+    "icon": "icon/relic/131_0.png",
+    "id": "131",
+    "name": "As Navigator Isee Sees It",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "132": {
+    "category": "relic",
+    "icon": "icon/relic/132_0.png",
+    "id": "132",
+    "name": "Divine-Querying Master Smith",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "301": {
+    "category": "planar",
+    "icon": "icon/relic/301_0.png",
+    "id": "301",
+    "name": "Space Sealing Station",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "302": {
+    "category": "planar",
+    "icon": "icon/relic/302_0.png",
+    "id": "302",
+    "name": "Fleet of Ageless",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "305": {
+    "category": "planar",
+    "icon": "icon/relic/305_0.png",
+    "id": "305",
+    "name": "Pan-Cosmic Commercial Enterprise",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "306": {
+    "category": "planar",
+    "icon": "icon/relic/306_0.png",
+    "id": "306",
+    "name": "Inert Salsotto",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "307": {
+    "category": "planar",
+    "icon": "icon/relic/307_0.png",
+    "id": "307",
+    "name": "Talia, Kingdom of Banditry",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "308": {
+    "category": "planar",
+    "icon": "icon/relic/308_0.png",
+    "id": "308",
+    "name": "Sprightly Vonwacq",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "309": {
+    "category": "planar",
+    "icon": "icon/relic/309_0.png",
+    "id": "309",
+    "name": "Rutilant Arena",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "310": {
+    "category": "planar",
+    "icon": "icon/relic/310_0.png",
+    "id": "310",
+    "name": "Broken Keel",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "311": {
+    "category": "planar",
+    "icon": "icon/relic/311_0.png",
+    "id": "311",
+    "name": "Firmament Frontline: Glamoth",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "312": {
+    "category": "planar",
+    "icon": "icon/relic/312_0.png",
+    "id": "312",
+    "name": "Penacony, Land of Dreams",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "313": {
+    "category": "planar",
+    "icon": "icon/relic/313_0.png",
+    "id": "313",
+    "name": "Sigonia, The Unclaimed Desolation",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "314": {
+    "category": "planar",
+    "icon": "icon/relic/314_0.png",
+    "id": "314",
+    "name": "Izumo Gensei and Takama Divine Realm",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "315": {
+    "category": "planar",
+    "icon": "icon/relic/315_0.png",
+    "id": "315",
+    "name": "Duran, Dynasty of Running Wolves",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "316": {
+    "category": "planar",
+    "icon": "icon/relic/316_0.png",
+    "id": "316",
+    "name": "Forge of the Kalpagni Lantern",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "317": {
+    "category": "planar",
+    "icon": "icon/relic/317_0.png",
+    "id": "317",
+    "name": "Lushaka, The Sunken Seas",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "318": {
+    "category": "planar",
+    "icon": "icon/relic/318_0.png",
+    "id": "318",
+    "name": "The Wondrous BananAmusement Park",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "319": {
+    "category": "planar",
+    "icon": "icon/relic/319_0.png",
+    "id": "319",
+    "name": "Revelry by the Sea",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "320": {
+    "category": "planar",
+    "icon": "icon/relic/320_0.png",
+    "id": "320",
+    "name": "Giant Tree of Rapt Brooding",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "321": {
+    "category": "planar",
+    "icon": "icon/relic/321_0.png",
+    "id": "321",
+    "name": "Bone Collection's Serene Demesne",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "322": {
+    "category": "planar",
+    "icon": "icon/relic/322_0.png",
+    "id": "322",
+    "name": "City of Converging Stars",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "323": {
+    "category": "planar",
+    "icon": "icon/relic/323_0.png",
+    "id": "323",
+    "name": "Amphoreus, The Eternal Land",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "324": {
+    "category": "planar",
+    "icon": "icon/relic/324_0.png",
+    "id": "324",
+    "name": "Tengoku@Livestream",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "325": {
+    "category": "planar",
+    "icon": "icon/relic/325_0.png",
+    "id": "325",
+    "name": "Punklorde Stage Zero",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "326": {
+    "category": "planar",
+    "icon": "icon/relic/326_0.png",
+    "id": "326",
+    "name": "Arcadia of Woven Dreams",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "327": {
+    "category": "planar",
+    "icon": "icon/relic/327_0.png",
+    "id": "327",
+    "name": "Fallen Star Anchorage",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  },
+  "328": {
+    "category": "planar",
+    "icon": "icon/relic/328_0.png",
+    "id": "328",
+    "name": "Cosmic Life Sciences Institute",
+    "source": "derived_from_existing_relics_json_and_import_aliases"
+  }
+}
